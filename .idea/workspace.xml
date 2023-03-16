@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c6448b02-b25e-4e43-95ed-dc1960bf2f24" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DepsProjectDetails">
+    <option name="cachedModuleDetails">
+      <map>
+        <entry key="$PROJECT_DIR$/deps.edn">
+          <value>
+            <ModuleDetails>
+              <option name="details" value="{:paths [&quot;/Users/josephr/Documents/joseph/cursos/clojure-challenge/src&quot;], :deps {org.clojure/clojure {:mvn/version &quot;1.11.1&quot;}, org.clojure/data.json {:mvn/version &quot;0.2.6&quot;}}, :aliases {:deps {:replace-paths [], :replace-deps {org.clojure/tools.deps.cli {:mvn/version &quot;0.9.10&quot;}}, :ns-default clojure.tools.deps.cli.api, :ns-aliases {help clojure.tools.deps.cli.help}}, :test {:extra-paths [&quot;/Users/josephr/Documents/joseph/cursos/clojure-challenge/test&quot;]}}, :mvn/repos {&quot;central&quot; {:url &quot;https://repo1.maven.org/maven2/&quot;}, &quot;clojars&quot; {:url &quot;https://repo.clojars.org/&quot;}}, :system-aliases #{:test :deps}, :deps-tree {org.clojure/clojure {:mvn/version &quot;1.11.1&quot;, :deps/manifest :mvn, :paths [&quot;/Users/josephr/.m2/repository/org/clojure/clojure/1.11.1/clojure-1.11.1.jar&quot;], :dependents [], :children (org.clojure/spec.alpha org.clojure/core.specs.alpha)}, org.clojure/data.json {:mvn/version &quot;0.2.6&quot;, :deps/manifest :mvn, :paths [&quot;/Users/josephr/.m2/repository/org/clojure/data.json/0.2.6/data.json-0.2.6.jar&quot;], :dependents [], :children ()}, org.clojure/spec.alpha {:mvn/version &quot;0.3.218&quot;, :deps/manifest :mvn, :dependents [org.clojure/clojure], :paths [&quot;/Users/josephr/.m2/repository/org/clojure/spec.alpha/0.3.218/spec.alpha-0.3.218.jar&quot;], :children ()}, org.clojure/core.specs.alpha {:mvn/version &quot;0.2.62&quot;, :deps/manifest :mvn, :dependents [org.clojure/clojure], :paths [&quot;/Users/josephr/.m2/repository/org/clojure/core.specs.alpha/0.2.62/core.specs.alpha-0.2.62.jar&quot;], :children ()}}, :test-paths [&quot;/Users/josephr/Documents/joseph/cursos/clojure-challenge/test&quot;]}" />
+              <option name="hash" value="5e1a9eb6477da90c84185749bf13d665" />
+            </ModuleDetails>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2N1OXMMLMWmtdfEwpGGIetFoMUr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/josephr/Documents/joseph/cursos/clojure-challenge"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="bbPath" value="" />
+      <setting name="parameters" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <setting name="workingDir" value="" />
+      <setting name="focusEditor" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c6448b02-b25e-4e43-95ed-dc1960bf2f24" name="Changes" comment="" />
+      <created>1678828159137</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678828159137</updated>
+    </task>
+    <servers />
+  </component>
+</project>
