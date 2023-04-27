@@ -1,40 +1,60 @@
 (ns invoice-spec
   (:require
-    [clojure.spec.alpha :as s])
-  (:require
-    [cheshire.core :as json])
-  (:require
-    [clojure.spec.gen.alpha :as gen]))
+    [clojure.spec.alpha :as s]
+    [cheshire.core :as json]))
 
-(defn genInvoice
-  [n]
-  (gen/sample (s/gen ::invoice) n))
+(defn transform-invoice [invoice-json]
+  (let [invoice (:invoice invoice-json)
+        customer (:customer invoice)
+        items (:items invoice)
+        retentions (:retentions invoice)]
+    {:invoice/issue_date (:issue_date invoice)
+     :invoice/payment_means_type (:payment_means_type invoice)
+     :invoice/number (:number invoice)
+     :invoice/order_reference (:order_reference invoice)
+     :invoice/payment_date (:payment_date invoice)
+     :invoice/payment_means (:payment_means invoice)
+     :invoice/customer {:customer/company_name (:company_name customer)
+                        :customer/email (:email customer)}
+     :invoice/items (vec (map (fn [item]
+                                {:invoice-item/price (:price item)
+                                 :invoice-item/quantity (:quantity item)
+                                 :invoice-item/sku (:sku item)
+                                 :invoice-item/taxes (vec (map (fn [tax]
+                                                                 {:tax/tax_category (-> tax :tax_category keyword)
+                                                                  :tax/tax_rate (Double/parseDouble (str (:tax_rate tax)))
+                                                                  })
+                                                               (:taxes item)))
+                                 })
+                              items))
+     :invoice/retentions (vec (map (fn [retention]
+                                     {:tax/tax_category (-> retention :tax_category keyword)
+                                      :tax/tax_rate (Double/parseDouble (str (:tax_rate retention)))
+                                      })
+                                   retentions))
+     }))
+(defn validate-invoice [filename]
+  (let [json-str (slurp filename)
+        invoice-map (json/parse-string json-str true)
+        invoice (transform-invoice invoice-map)]
+    (s/valid? ::invoice invoice)))
 
-(defn validate-invoice [file-name]
-  (let [invoice (json/parse-string (slurp file-name) true)]
-    (s/valid? ::invoice [invoice])))
+(validate-invoice "invoice.json")
 
-; What I had in mind was to take the json data and first convert the data from string
-; to date where necessary and then convert each key of the data to the format that receives
-; the invoice definition.
-
-;(defn validate-invoice-in-progress [file-name]
-;  (let [invoice (json/parse-string (slurp file-name) true)]
-;    (reduce (fn [new-invoice [key val]]
-;              (assoc new-invoice (set/rename-keys {key val} {key (str ":invoice/" (clojure.string/replace key #"^:" ""))}) val)
-;              )
-;            {}
-;            (:invoice invoice))))
-
+(s/def :invoice/payment_date string?)
+(s/def :invoice/payment_means string?)
+(s/def :invoice/payment-means-type string?)
+(s/def :invoice/order_reference string?)
+(s/def :invoice/number string?)
 (s/def :customer/company_name string?)
 (s/def :customer/email string?)
 (s/def :invoice/customer (s/keys :req [:customer/company_name
                                        :customer/email]))
 
-(s/def :tax/rate double?)
-(s/def :tax/category #{:iva})
-(s/def ::tax (s/keys :req [:tax/category
-                           :tax/rate]))
+(s/def :tax/tax_rate double?)
+(s/def :tax/tax_category #{:RET_IVA, :RET_FUENTE, :IVA})
+(s/def ::tax (s/keys :req [:tax/tax_category
+                           :tax/tax_rate]))
 (s/def :invoice-item/taxes (s/coll-of ::tax :kind vector? :min-count 1))
 
 (s/def :invoice-item/price double?)
@@ -47,9 +67,17 @@
                 :invoice-item/sku
                 :invoice-item/taxes]))
 
-(s/def :invoice/issue_date inst?)
+(s/def :invoice/issue_date string?)
 (s/def :invoice/items (s/coll-of ::invoice-item :kind vector? :min-count 1))
 
-(s/def ::invoice
-  (s/keys :req [:invoice/issue_date]))
+(s/def :invoice/retentions (s/coll-of ::tax :kind vector? :min-count 1))
 
+(s/def ::invoice
+  (s/keys :req [:invoice/payment_means_type
+                :invoice/number
+                :invoice/issue_date
+                :invoice/payment_date
+                :invoice/customer
+                :invoice/payment_means
+                :invoice/items
+                :invoice/retentions]))

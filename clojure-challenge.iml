@@ -12,9 +12,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Deps: org.clojure/clojure:1.11.1" level="project" />
     <orderEntry type="library" name="Deps: org.clojure/data.json:0.2.6" level="project" />
-    <orderEntry type="library" name="Deps: org.clojure/spec.alpha:0.3.218" level="project" />
+    <orderEntry type="library" name="Deps: org.clojure/clojure:1.11.1" level="project" />
     <orderEntry type="library" name="Deps: org.clojure/core.specs.alpha:0.2.62" level="project" />
+    <orderEntry type="library" name="Deps: org.clojure/spec.alpha:0.3.218" level="project" />
+    <orderEntry type="library" name="Deps: com.fasterxml.jackson.dataformat/jackson-dataformat-cbor:2.10.2" level="project" />
+    <orderEntry type="library" name="Deps: com.fasterxml.jackson.core/jackson-core:2.10.2" level="project" />
+    <orderEntry type="library" name="Deps: cheshire:5.10.0" level="project" />
+    <orderEntry type="library" name="Deps: tigris:0.1.2" level="project" />
+    <orderEntry type="library" name="Deps: org.clojure/test.check:1.1.1" level="project" />
+    <orderEntry type="library" name="Deps: com.fasterxml.jackson.dataformat/jackson-dataformat-smile:2.10.2" level="project" />
   </component>
 </module>
